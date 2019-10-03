@@ -1,0 +1,54 @@
+
+---
+- name: My first playbook for variables lessons
+  hosts: all
+  become: yes
+
+  vars:       # variables
+    message1: Hello
+    message2: How do you do?
+    secret  : My first book
+
+  tasks:
+
+  - name: text for hosts
+    debug:             # modul that print (output) information "various: secret"
+      var: secret
+
+  - debug:             # {{.....}} for outputing variables on the monitor
+      msg: "Sekretne slovo: {{ secret }}"
+
+  - debug:
+      msg: "Owner of the file -->{{ owner }}<--"
+    #  "set_fact" combine our various
+  - set_fact: full_msg "{{ message1 }} {{ message2 }} from {{ owner }}"
+    #  "debug"  output our variables
+  - debug:
+      var: full_msg
+    # var - output our variables? that we create above
+  - debug:
+      var: ansible_distribution
+    # create new command "uptime" from -m(shell)
+  - shell: uptime
+    register: results
+    # output this command "uptime"
+  - debug:
+      var: results
+    # output our various on the screen
+
+
+
+
+
+# -m(moduls) --> name, debug, set_fact, shell etp.....<--
+
+#---
+#- name: Test connection to my servers
+#   hosts: all
+#   become: yes
+
+#   tasks:
+
+#   - name: Ping my servers
+#     ping:
+# 'ping' this is a command that we want to start!!!

@@ -1,0 +1,20 @@
+# the sample is below !!! 
+---
+ - one_day:
+      work: devops  
+      rest: swimming pool
+      dating:
+         - olya
+         - masha
+         - ira
+      evening:
+         -  dinner:
+              - meat
+              - bread
+              - milk
+              - fish
+
+
+# second sample
+
+ - Kolya: { nick: Kolyan, position: administrator, skills: ['killer', 'cleaner'] }

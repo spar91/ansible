@@ -1,0 +1,15 @@
+# FOR EXAMPLE
+---
+ - name: Install Apache WebServer                  # it is an information for us
+   hosts: all                                      # for whom, one group or for all
+   become: yes                                     # (-b) under root user
+
+
+   tasks:
+    - name: install Apache WebServer               # for us
+      yum: name=httpd state=latest                 # command that to do
+
+      
+    - name: Start Apache and Enable it on the every machine      # again info.
+      service: name=httpd state=started enabled=yes # second command that to do
+           

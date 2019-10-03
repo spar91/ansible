@@ -1,0 +1,77 @@
+[WEB]
+linuxX ansible_host=dev91@192.168.0.103     owner=dev91
+[PROD]
+linux1 ansible_host=dev91c@192.168.0.108    owner=dev91c
+linux2 ansible_host=dev91m@192.168.0.105    owner=dev91m
+
+#[staging_servers] 
+#linuxX  ansible_host=dev91@192.168.0.103    ansible_user=dev91u   ansible_ssh_private_key_file=/home/dev91u/.ssh/id_rsa.pub
+#linux1  ansible_host=dev91c@192.168.0.108   ansible_user=dev91u    ansible_ssh_private_key_file=/home/dev91u/.ssh/id_rsa.pub
+#linux2  ansible_host=dev91m@192.168.0.105   ansible_user=dev91u    ansible_ssh_private_key_file=/home/dev91u/.ssh/id_rsa.pub
+
+#[host_mint]
+#dev91m@192.168.0.105
+
+#[host_centos]
+#dev91c@192.168.0.108
+
+#[host_fedora]
+#dev91@192.168.0.103
+
+#one of ways to make shorter addres above!
+#[prod_servers:vars]
+#ansible_user=dev91u
+#ansible_ssh_private_key_file=/home/dev91u/.ssh/ssh_keym.pem  
+# but if they two addres are the same!!!!!
+
+
+
+# they have not groups!!! they are differnt
+#192.168.55.6
+#192.168.55.5
+
+# these groups are for example
+#[staging_DB]
+#192.169.0.1
+#192.168.0.6
+
+#[staging_WEB]
+#192.168.0.6
+#192.168.0.9
+
+#[staging_APP]
+#192.168.1.22
+#192.168.1.19
+
+#[staging_ALL:children]
+#staging_DB
+#staging_WEB
+#staging_APP
+
+# one more sample
+#[prod_DB]
+#10.10.1.1
+
+#[prod_WEB]
+#10.10.2.2
+
+#[prod_APP]
+#10.10.3.3
+
+#[proud_ALL:children]
+#prod_DB
+#prod_WEB
+#prod_APP
+
+#one more
+#[DB_ALL:children]
+#staging_DB
+#prod_DB
+
+#[WEB_ALL:children]
+#staging_WEB
+#prod_WEB
+
+#[APP_ALL:children]
+#staging_APP
+#prod_APP
